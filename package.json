@@ -1,0 +1,36 @@
+{
+  "name": "@mixj93/pancake",
+  "version": "0.1.0",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bin": {
+    "pancake": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "start": "tsc-watch",
+    "build": "tsc",
+    "prepublish": "rm -rf lib && npm run build"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [],
+  "author": "mixj93",
+  "license": "ISC",
+  "description": "🥞 Pancake",
+  "devDependencies": {
+    "@types/node": "^24.2.1",
+    "tsc-watch": "^7.1.1",
+    "typescript": "^5.9.2"
+  },
+  "packageManager": "npm@10.9.2",
+  "dependencies": {
+    "@commander-js/extra-typings": "^14.0.0",
+    "axios": "^1.11.0"
+  }
+}
