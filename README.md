@@ -1,5 +1,11 @@
 # 🥞 pancake
 
+## Install
+
+```bash
+$ npm i -g @mixj93/pancake
+```
+
 ## Usage
 
 ```
@@ -30,4 +36,12 @@ $ npm run build
 $ npm start
 # permission problem? Try chmod +x xxx/xxxx/pancake
 $ npx pancake --help
+```
+
+## Publish
+
+```bash
+$ npm run pre
+$ npm login
+$ npm publish --access=public
 ```
