@@ -2,7 +2,7 @@
 
 import { Command, Option } from '@commander-js/extra-typings'
 import { initAxios } from './axios.js'
-import { getFileLink, listFiles } from './commands.js'
+import { getFilesLink, listFiles } from './commands.js'
 
 initAxios()
 
@@ -10,8 +10,8 @@ const program = new Command()
 
 program
   .name('pancake')
-  .description('🥞 Pancake')
-  .version('0.0.1')
+  .description('🥞 Pancake is a baidu pan commandline tool')
+  .version('0.2.0')
   .addOption(
     new Option('-k, --ak <access-key>', 'Access Key is required').env('PANCAKE_ACCESS_KEY').makeOptionMandatory()
   )
@@ -33,6 +33,6 @@ program
   .addOption(
     new Option('-k, --ak <access-key>', 'Access Key is required').env('PANCAKE_ACCESS_KEY').makeOptionMandatory()
   )
-  .action(getFileLink)
+  .action(getFilesLink)
 
 program.parse()

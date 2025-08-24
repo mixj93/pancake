@@ -1,5 +1,5 @@
 import axios from 'axios'
-import type { IGetFileInfoData, IListFilesData } from './types'
+import type { IGetFilesInfoData, IListFilesData } from './types'
 
 export function listFiles(ak: string, folder: string): Promise<IListFilesData> {
   return axios({
@@ -19,14 +19,14 @@ export function listFiles(ak: string, folder: string): Promise<IListFilesData> {
   })
 }
 
-export function getFileInfo(ak: string, fileIds: string[]): Promise<IGetFileInfoData> {
+export function getFilesInfo(ak: string, fileIds: string): Promise<IGetFilesInfoData> {
   return axios({
     method: 'GET',
     url: 'https://pan.baidu.com/rest/2.0/xpan/multimedia',
     params: {
       method: 'filemetas',
       access_token: ak,
-      fsids: `[${fileIds.join(',')}]`,
+      fsids: `[${fileIds}]`,
       thumb: '1',
       dlink: '1',
       extra: '1',

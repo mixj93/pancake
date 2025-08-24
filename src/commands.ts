@@ -1,4 +1,4 @@
-import { listFiles as listFilesApi, getFileInfo as getFileInfoApi } from './apis'
+import { listFiles as listFilesApi, getFilesInfo as getFilesInfoApi } from './apis'
 
 export async function listFiles(folder: string, options: { ak: string }) {
   const { ak } = options
@@ -16,19 +16,23 @@ export async function listFiles(folder: string, options: { ak: string }) {
   }
 }
 
-export async function getFileLink(fileId: string, options: { ak: string }) {
+export async function getFilesLink(fileIds: string, options: { ak: string }) {
   const { ak } = options
 
-  console.log(`Download link for: ${fileId}`)
+  console.log(`Download link for: ${fileIds}\n`)
 
   try {
-    const resp = await getFileInfoApi(ak, [fileId])
-    const file = resp.list?.[0]
-    if (file?.dlink) {
-      const downloadCmd = `wget "${file.dlink}&access_token=${ak}" -U 'pan.baidu.com' -O "${file.filename}"`
-      console.log(`Download command: \n\n${downloadCmd}`)
-    } else {
-      console.log('No file found with the given ID.')
+    const resp = await getFilesInfoApi(ak, fileIds)
+    const list = resp.list || []
+    if (list.length > 0) {
+      console.log(`Download commands: \n`)
+    }
+    for (let i = 0; i < list.length; i++) {
+      const file = list[i]
+      if (file?.dlink) {
+        const downloadCmd = `wget "${file.dlink}&access_token=${ak}" -U 'pan.baidu.com' -O "${file.filename}"`
+        console.log(`${downloadCmd}\n`)
+      }
     }
   } catch (error) {
     console.error('Error when LIST:', error)

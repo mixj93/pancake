@@ -4,6 +4,8 @@
 
 ```bash
 $ npm i -g @mixj93/pancake
+
+$ pnpm i -g @mixj93/pancake
 ```
 
 ## Usage

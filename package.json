@@ -1,6 +1,6 @@
 {
   "name": "@mixj93/pancake",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": false,
   "repository": {
     "type": "git",
@@ -19,10 +19,13 @@
   "files": [
     "dist"
   ],
-  "keywords": [],
+  "keywords": [
+    "cli",
+    "commandline"
+  ],
   "author": "mixj93",
   "license": "ISC",
-  "description": "🥞 Pancake",
+  "description": "🥞 Pancake is a baidu pan commandline tool",
   "devDependencies": {
     "@types/node": "^24.2.1",
     "tsc-watch": "^7.1.1",

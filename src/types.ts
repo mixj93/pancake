@@ -60,7 +60,7 @@ export interface IListFilesData extends IPanData {
   list: IFile[]
 }
 
-export interface IGetFileInfoData extends IPanData {
+export interface IGetFilesInfoData extends IPanData {
   list: IFileInfo[]
   names: {}
 }
