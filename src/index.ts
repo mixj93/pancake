@@ -28,8 +28,8 @@ program
 
 // Get download link for a file
 program
-  .command('link <file_id>')
-  .description('get download link for a file')
+  .command('link <file_ids>')
+  .description('get download link for files, separated by comma')
   .addOption(
     new Option('-k, --ak <access-key>', 'Access Key is required').env('PANCAKE_ACCESS_KEY').makeOptionMandatory()
   )
